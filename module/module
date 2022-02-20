@@ -24,6 +24,7 @@ msg(){
     -ama)  cor="${COLOR[3]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
     -verm) cor="${COLOR[3]}${NEGRITO}[!] ${COLOR[1]}" && echo -e "${cor}${2}${SEMCOR}";;
     -verm2)cor="${COLOR[1]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
+    -verm3)cor="${COLOR[1]}" && echo -e "${cor}${2}${SEMCOR}";;
     -teal) cor="${COLOR[7]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
     -teal2)cor="${COLOR[7]}" && echo -e "${cor}${2}${SEMCOR}";;
     -blak) cor="${COLOR[8]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;

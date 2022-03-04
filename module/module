@@ -144,6 +144,17 @@ selection_fun(){
   echo $selection
 }
 
+in_opcion(){
+  unset opcion
+  if [[ -z $2 ]]; then
+      msg -nazu " $1: " >&2
+  else
+      msg $1 " $2: " >&2
+  fi
+  read opcion
+  echo "$opcion"
+}
+
 export -f msg
 export -f selection_fun
 export -f menu_func
@@ -151,3 +162,4 @@ export -f print_center
 export -f title
 export -f back
 export -f enter
+export -f in_opcion

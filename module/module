@@ -155,6 +155,18 @@ in_opcion(){
   echo "$opcion"
 }
 
+in_opcion_down(){
+  dat=$1
+  length=${#dat}
+  cal=$(( 22 - $length / 2 ))
+  line=''
+  for (( i = 0; i < $cal; i++ )); do
+    line+='╼'
+  done
+  echo -e " $(msg -verm3 "╭$line╼[")$(msg -azu "$dat")$(msg -verm3 "]")"
+  echo -ne " $(msg -verm3 "╰╼")\033[37;1m> " && read opcion
+}
+
 export -f msg
 export -f selection_fun
 export -f menu_func
@@ -163,3 +175,5 @@ export -f title
 export -f back
 export -f enter
 export -f in_opcion
+export -f in_opcion_down
+

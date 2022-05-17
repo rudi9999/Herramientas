@@ -152,7 +152,7 @@ in_opcion(){
       msg $1 " $2: " >&2
   fi
   read opcion
-  echo "$opcion"
+  #echo "$opcion"
 }
 
 in_opcion_down(){

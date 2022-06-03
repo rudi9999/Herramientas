@@ -167,6 +167,12 @@ in_opcion_down(){
   echo -ne " $(msg -verm3 "╰╼")\033[37;1m> " && read opcion
 }
 
+del(){
+  for (( i = 0; i < $1; i++ )); do
+    tput cuu1 && tput dl1
+  done
+}
+
 export -f msg
 export -f selection_fun
 export -f menu_func
@@ -176,4 +182,5 @@ export -f back
 export -f enter
 export -f in_opcion
 export -f in_opcion_down
+export -f del
 

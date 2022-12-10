@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# varibles
+export _hora=$(printf '%(%H:%M:%S)T') 
+export _fecha=$(printf '%(%D)T')
+
+export numero='^[0-9]+$'
+export texto='^[A-Za-z]+$'
+export txt_num='^[A-Za-z0-9]+$'
+
 # interfas de colores
 msg(){
   COLOR[0]='\033[1;37m' #BRAN='\033[1;37m'
@@ -152,7 +160,7 @@ in_opcion(){
       msg $1 " $2: " >&2
   fi
   read opcion
-  #echo "$opcion"
+  echo "$opcion"
 }
 
 in_opcion_down(){
@@ -183,4 +191,3 @@ export -f enter
 export -f in_opcion
 export -f in_opcion_down
 export -f del
-

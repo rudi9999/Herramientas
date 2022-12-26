@@ -1,5 +1,11 @@
 #!/bin/bash
 
+case $newlang in
+  en_US)  a_enter='Press enter to continue'
+          a_back='RETURN'
+          a_selection_fun='Press enter to continue';;
+esac
+
 # varibles
 export _hora=$(printf '%(%H:%M:%S)T') 
 export _fecha=$(printf '%(%D)T')
@@ -99,7 +105,7 @@ title(){
 # finalizacion de tareas
  enter(){
   msg -bar
-  text="►► Presione enter para continuar ◄◄"
+  text="►► ${a_enter:-Presione enter para continuar} ◄◄"
   if [[ -z $1 ]]; then
     print_center -ama "$text"
   else
@@ -111,7 +117,7 @@ title(){
 # opcion, regresar volver/atras
 back(){
     msg -bar
-    echo -ne "$(msg -verd " [0]") $(msg -verm2 ">") " && msg -bra "\033[1;41mVOLVER"
+    echo -ne "$(msg -verd " [0]") $(msg -verm2 ">") " && msg -bra "\033[1;41m${a_back:-VOLVER}"
     msg -bar
  }
 
@@ -145,7 +151,7 @@ selection_fun(){
   fi
   for((i=0; i<=$opcion; i++)); do range[$i]="$i "; done
   while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-    msg "$col" " Selecione una Opcion: " >&2
+    msg "$col" " ${a_selection_fun:-Selecione una Opcion}: " >&2
     read selection
     tput cuu1 >&2 && tput dl1 >&2
   done

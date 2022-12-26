@@ -3,7 +3,7 @@
 case $newlang in
   en_US)  a_enter='Press enter to continue'
           a_back='RETURN'
-          a_selection_fun='Press enter to continue';;
+          a_selection_fun='Select an Option:';;
 esac
 
 # varibles
@@ -151,7 +151,7 @@ selection_fun(){
   fi
   for((i=0; i<=$opcion; i++)); do range[$i]="$i "; done
   while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-    msg "$col" " ${a_selection_fun:-Selecione una Opcion}: " >&2
+    msg "$col" " ${a_selection_fun:-Seleccione una Opcion}: " >&2
     read selection
     tput cuu1 >&2 && tput dl1 >&2
   done
